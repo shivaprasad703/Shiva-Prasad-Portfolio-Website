@@ -1,0 +1,215 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #0B0D17;
+    color:#FFFFFF ;
+    line-height: 1.6;
+    overflow-x: hidden;
+
+}
+.stars{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+     z-index: -1;
+     background: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=3113&q=80') center/cover no-repeat;
+     opacity: 0.8;
+}
+header{
+    padding: 2rem;
+   text-align: center;
+    position: relative;
+    
+    
+}
+.logo{
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg,#c2c9f0,#750da9);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+    /* position: fixed;
+    top: 0%;
+    left:38%; */
+    
+    
+}
+nav{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+nav a {
+    color: #8e9df5;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    
+    border-radius: 20px;
+} 
+ nav a:hover {
+    background-color:  rgba(208, 214, 249, 0.2);
+ }
+ .hero{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center ;
+    text-align: center;
+    padding: 0.2rem;
+    position: relative;
+
+ }
+ .hero h1{
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #FFFFFF,#5168ec);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+ }
+ .hero p{
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    color:#D0D6F9 ;
+ }
+ .cta-button{
+    padding: 0.8rem 2rem;
+    background: linear-gradient(90deg,#6D2E8C,#FF6B35);
+    color: whitesmoke;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 20px
+
+ }
+
+ .cta-button:hover{
+    
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+ }
+
+ section{
+    padding: 64px 32px ;
+    max-width: 1200px;
+    margin: 0 auto;
+ }
+ .section-title{
+    font-size: 40px;
+    margin-bottom: 32px;
+    text-align: center;
+    position: relative;
+ }
+ .section-title::after{
+    content: '';
+    display: inline-block;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg,#6D2E8C,#FF6B35);
+    margin: 0.5rem auto;
+ }
+
+ .card-grid{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    margin-top: 2rem;
+ }
+ .card{
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+ }
+
+ .caed:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3)
+    ;
+ }
+ .card-image{
+height: 200px;
+overflow: hidden;
+ }
+ .card-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease ;
+ }
+ .card:hover .card-image img{
+    transform: scale(1.1);
+ }
+
+ .card-content{
+    padding: 1.5rem;
+ }
+ .card h3{
+    font-size: 40px;
+    margin-bottom: 0.5rem;
+    text-align: center;
+ }
+ .card p{
+    color:#D0D6F9;
+    margin-bottom: 1rem;
+ }
+ .read-more{
+    color:#FF6B35;
+    text-decoration: none;
+    font-weight: 600;
+ }
+ .facts-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+ }
+ .fact-card{
+    background-color:rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 350px;
+    transition: all 0.3s ease;
+ }
+
+ .fact-card:hover {
+    background-color:  rgba(255, 255, 255, 0.284);
+ }
+ .fact-card h3{
+    color: #FF6B35;
+    margin-bottom: 0.5rem;
+ }
+
+
+ footer{
+    background-color:rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+ }
+ .footer-links{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+ }
+ .footer-links a{
+    color: #5168ec;
+    text-decoration: none;
+ }
+ .copyright{
+    color: #5168ec;
+    opacity: 0.7;
+ }

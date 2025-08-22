@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>car gallery</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      body {
+        background-image: url("URL_OF_YOUR_IMAGE"); /* Keep your background image */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: black;
+        margin: 0; /* Ensure no default body margin */
+        padding: 0; /* Ensure no default body padding */
+      }
+
+      .carlogo {
+        width: 100px; /* Default for larger screens */
+      }
+
+      .imgs {
+        width: 100%;
+        height: 600px; /* Default for desktops */
+        object-fit: cover; /* Corrected: removed quotes */
+      }
+
+      .FeaturedCars {
+        text-align: center;
+        margin: 30px 0; /* Adjusted margin for better spacing */
+        padding: 5px;
+      }
+
+      .FeaturedCars h1 {
+        font-weight: 600;
+        font-size: 60px; /* Default for desktops */
+        padding: 5px;
+        color: whitesmoke;
+      }
+
+      .card {
+        box-shadow: 0px 0px 10px 1px rgb(250, 249, 249);
+        margin-bottom: 20px; /* Add some space between cards */
+        width: 100%; /* Ensure cards take full width of their column */
+      }
+
+      /* Hover effects - consider if you want these on touch devices */
+      .card-img-top:hover {
+        transform: scale(1.1);
+      }
+
+      .card:hover {
+        transform: scale(1.1);
+      }
+
+      .carlogo:hover {
+        transform: scale(1.1);
+      }
+
+      .containertext-center {
+        margin-bottom: 40px;
+        /* Removed margin-left: 100px; to allow Bootstrap's container to center */
+        padding-left: 15px; /* Add padding for small screens */
+        padding-right: 15px; /* Add padding for small screens */
+      }
+
+      .myfooter {
+        background-color: bisque;
+        padding: 30px;
+      }
+
+      .card-title {
+        text-align: center;
+      }
+
+      .card-text {
+        text-align: center;
+      }
+
+      /* --- Responsive Adjustments --- */
+
+      /* Mobile Devices (up to 576px) */
+      @media (max-width: 576px) {
+        .imgs {
+          height: 200px; /* reduce carousel height */
+        }
+
+        .FeaturedCars h1 {
+          font-size: 28px; /* Adjusted for better readability on small screens */
+        }
+
+        .carlogo {
+          width: 60px;
+        }
+
+        .card {
+          /* width: 100% !important; - This is handled by Bootstrap's col-12 */
+          margin-bottom: 15px;
+          transform: none !important; /* Disable hover transform on small screens */
+        }
+
+        .card-img-top:hover,
+        .card:hover,
+        .carlogo:hover {
+          transform: none !important; /* Disable hover transform on small screens */
+        }
+
+        .containertext-center {
+          margin: 0 auto 40px auto; /* Center and add bottom margin */
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
+        .navbar-brand .carlogo {
+          width: 80px; /* Adjust navbar logo size for mobile */
+        }
+
+        .navbar-toggler {
+          margin-right: 10px; /* Add some space to the toggler */
+        }
+
+        .carousel-caption h5 {
+          font-size: 1.2rem;
+        }
+
+        .carousel-caption p {
+          font-size: 0.8rem;
+        }
+      }
+
+      /* Tablets (577px - 768px) */
+      @media (min-width: 577px) and (max-width: 768px) {
+        .imgs {
+          height: 350px; /* Adjusted for tablets */
+        }
+
+        .FeaturedCars h1 {
+          font-size: 40px; /* Adjusted for tablets */
+        }
+
+        .carlogo {
+          width: 80px;
+        }
+
+        .card {
+          /* width: 90% !important; - This is handled by Bootstrap's col-md-6 */
+          margin: 10px auto;
+          transform: none !important; /* Disable hover transform on tablets */
+        }
+
+        .card-img-top:hover,
+        .card:hover,
+        .carlogo:hover {
+          transform: none !important; /* Disable hover transform on tablets */
+        }
+
+        .containertext-center {
+          margin: 0 auto 40px auto;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
+        .carousel-caption h5 {
+          font-size: 1.5rem;
+        }
+
+        .carousel-caption p {
+          font-size: 0.9rem;
+        }
+      }
+
+      /* Small Laptops (769px - 992px) */
+      @media (min-width: 769px) and (max-width: 992px) {
+        .imgs {
+          height: 450px; /* Adjusted for small laptops */
+        }
+
+        .FeaturedCars h1 {
+          font-size: 50px; /* Adjusted for small laptops */
+        }
+
+        .card {
+          /* width: 80% !important; - This is handled by Bootstrap's col-lg-4 */
+          margin: 10px auto;
+        }
+
+        .containertext-center {
+          margin-left: auto; /* Re-center for larger screens */
+          margin-right: auto;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+
+      /* Desktops (993px and above) - Your original desktop styles are mostly fine */
+      @media (min-width: 993px) {
+        .imgs {
+          height: 600px;
+        }
+
+        .FeaturedCars h1 {
+          font-size: 60px;
+        }
+
+        .card {
+          width: 18rem; /* Your original size for desktops */
+        }
+
+        .containertext-center {
+          margin-left: 100px; /* Your original margin for desktops */
+          margin-right: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg"
+      style="background-color: rgb(253, 251, 248)"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img
+            class="carlogo"
+            src="https://static.vecteezy.com/system/resources/previews/035/915/849/non_2x/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.png"
+            alt=""
+            style="background-color: rgb(252, 246, 246)"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                ><b>Home</b></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Featured Cars">gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Contect</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search Cares Here"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      id="carouselExampleCaptions"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="2000">
+          <img
+            class="imgs"
+            src="https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?cs=srgb&dl=pexels-mikebirdy-112460.jpg&fm=jpg&_gl=1*slwbmw*_ga*MTk3OTQ1NjMwMi4xNzQ1NzQzMzc4*_ga_8JE65Q40S6*czE3NTM1NDYwMTkkbzIxJGcxJHQxNzUzNTQ2MDM0JGo0NSRsMCRoMA.."
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Mercedes-AMG GT.</h5>
+            <p>
+              It’s a high-performance sports car known for its striking design
+              and powerful engine.
+            </p>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-bs-interval="1000">
+          <img
+            class="imgs"
+            src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?cs=srgb&dl=pexels-pixabay-210019.jpg&fm=jpg&_gl=1*1ym7blj*_ga*MTk3OTQ1NjMwMi4xNzQ1NzQzMzc4*_ga_8JE65Q40S6*czE3NTM1NDYwMTkkbzIxJGcxJHQxNzUzNTQ2MTY4JGo1NiRsMCRoMA.."
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Alfa Romeo 4C</h5>
+            <p>
+              a lightweight Italian sports coupe known for its striking design
+              and agile performance.
+            </p>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-bs-interval="1000">
+          <img
+            class="imgs"
+            src="https://images.pexels.com/photos/905554/pexels-photo-905554.jpeg?cs=srgb&dl=pexels-albinberlin-905554.jpg&fm=jpg&_gl=1*5q4qww*_ga*MTk3OTQ1NjMwMi4xNzQ1NzQzMzc4*_ga_8JE65Q40S6*czE3NTM1NDYwMTkkbzIxJGcxJHQxNzUzNTQ2MjgwJGoyMSRsMCRoMA.."
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Nissan 370Z.</h5>
+            <p>
+              It is a popular sports car known for its sharp handling and
+              powerful V6 engine.
+            </p>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-bs-interval="1000">
+          <img
+            class="imgs"
+            src="https://images.pexels.com/photos/17377912/pexels-photo-17377912.jpeg?cs=srgb&dl=pexels-julian-largo-622163228-17377912.jpg&fm=jpg&_gl=1*1p0ihbn*_ga*MTk3OTQ1NjMwMi4xNzQ1NzQzMzc4*_ga_8JE65Q40S6*czE3NTM1NTU5NDEkbzIyJGcxJHQxNzUzNTU1OTY1JGozNiRsMCRoMA.."
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Ferrari 488 Pista.</h5>
+            <p>
+              It’s a high-performance supercar renowned for its powerful V8
+              engine and striking
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="FeaturedCars"><h1>Featured Cars</h1></div>
+
+    <div class="container text-center">
+      <!-- Changed class to 'container' for better Bootstrap integration -->
+      <div class="row justify-content-center">
+        <!-- Added justify-content-center to center cards if they don't fill the row -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <!-- Responsive column classes -->
+          <div class="card">
+            <!-- Removed inline width style -->
+            <img
+              src="https://images.pexels.com/photos/2365572/pexels-photo-2365572.jpeg?cs=srgb&dl=pexels-mikebirdy-2365572.jpg&fm=jpg&_gl=1*106pwdp*_ga*MTk3OTQ1NjMwMi4xNzQ1NzQzMzc4*_ga_8JE65Q40S6*czE3NTM1NDYwMTkkbzIxJGcxJHQxNzUzNTQ3OTg4JGo0NSRsMCRoMA.."
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Mercedes-AMG GT S</h5>
+              <p class="card-text">
+                This model stands out for both its driving performance and
+                luxury features, combining the thrill of a supercar with
+                everyday usability. The AMG Solarbeam Yellow color is rare and
+                visually distinctive, making the car even more special.
+              </p>
+              <a
+                href="Mercedes-AMG GT S.html"
+                class="btn btn-primary"
+                target="_blank"
+                >explore more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <!-- Responsive column classes -->
+          <div class="card">
+            <!-- Removed inline width style -->
+            <img
+              src="https://images.pexels.com/photos/5730166/pexels-photo-5730166.jpeg?cs=srgb&dl=pexels-mikebirdy-5730166.jpg&fm=jpg&_gl=1*8t5scz*_ga*MTk3OTQ1NjMwMi4xNzQ1NzQzMzc4*_ga_8JE65Q40S6*czE3NTM1NDYwMTkkbzIxJGcxJHQxNzUzNTQ4ODAyJGo1MyRsMCRoMA.."
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Lamborghini huracan(verde mantis)</h5>
+              <p class="card-text">
+                The Lamborghini Huracán in Verde Mantis is a mesmerizing blend
+                of Italian craftsmanship and raw adrenaline. With its aggressive
+                design, sharp lines, and signature green finish .
+              </p>
+              <a
+                href="Lamborghini huracan(verde mantis).html"
+                class="btn btn-primary"
+                target="_blank"
+                >explore more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <!-- Responsive column classes -->
+          <div class="card">
+            <!-- Removed inline width and height styles -->
+            <img
+              src="https://images.pexels.com/photos/3972755/pexels-photo-3972755.jpeg?cs=srgb&dl=pexels-garvin-st-villier-719266-3972755.jpg&fm=jpg&_gl=1*z7dgh6*_ga*MTk3OTQ1NjMwMi4xNzQ1NzQzMzc4*_ga_8JE65Q40S6*czE3NTM1NDYwMTkkbzIxJGcxJHQxNzUzNTQ4MzAzJGozNCRsMCRoMA.."
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Corvette ZR1 Convertible</h5>
+              <p class="card-text">
+                The Corvette ZR1 Convertible is Chevrolet’s most powerful
+                production Corvette ever, debuting as part of the 2025 lineup
+                with staggering performance and technology.
+              </p>
+              <a
+                href="Corvette ZR1 Convertible.html"
+                class="btn btn-primary"
+                target="_blank"
+                >explore more</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center">
+      <!-- Changed class to 'container' -->
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4">
+          <!-- Responsive column classes -->
+          <div class="card">
+            <!-- Removed inline width style -->
+            <img
+              src="https://images.pexels.com/photos/27985144/pexels-photo-27985144.jpeg?cs=srgb&dl=pexels-lynxexotics-27985144.jpg&fm=jpg&_gl=1*1yj2czz*_ga*MTk3OTQ1NjMwMi4xNzQ1NzQzMzc4*_ga_8JE65Q40S6*czE3NTM1NDYwMTkkbzIxJGcxJHQxNzUzNTQ4MzU1JGo0NyRsMCRoMA.."
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">McLaren MP4-12C</h5>
+              <p class="card-text">
+                The McLaren MP4-12C blends British engineering with cutting-edge
+                design, featuring a carbon fiber composite chassis for
+                lightweight agility. Powered by a twin-turbo V8 engine, this
+                supercar offers incredible acceleration and precise handling.
+              </p>
+              <a
+                href="McLaren MP4-12C.html"
+                class="btn btn-primary"
+                target="_blank"
+                >explore more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <!-- Responsive column classes -->
+          <div class="card">
+            <!-- Removed inline width style -->
+            <img
+              src="https://images.pexels.com/photos/93615/pexels-photo-93615.jpeg?cs=srgb&dl=pexels-mikebirdy-93615.jpg&fm=jpg&_gl=1*xrk6y9*_ga*MTk3OTQ1NjMwMi4xNzQ1NzQzMzc4*_ga_8JE65Q40S6*czE3NTM1NDYwMTkkbzIxJGcxJHQxNzUzNTQ4NDM5JGo1OSRsMCRoMA.."
+              class="card-img-top"
+              alt="..."
+              target="_blank"
+            />
+            <div class="card-body">
+              <h5 class="card-title">BMW Z4 roadstar</h5>
+              <p class="card-text">
+                The BMW Z4 is a striking two-seater convertible known for its
+                sporty design and exhilarating driving experience. With classic
+                BMW styling cues like the signature kidney grille, sleek lines,
+                and aggressive front headlights, the Z4 stands out on the road.
+              </p>
+              <a href="BMW Z4 roadstar.html" class="btn btn-primary"
+                >explore more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <!-- Responsive column classes -->
+          <div class="card">
+            <!-- Removed inline width and height styles -->
+            <img
+              src="https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?cs=srgb&dl=pexels-mikebirdy-1035108.jpg&fm=jpg&_gl=1*addvep*_ga*MTk3OTQ1NjMwMi4xNzQ1NzQzMzc4*_ga_8JE65Q40S6*czE3NTM1NDYwMTkkbzIxJGcxJHQxNzUzNTQ4NTM0JGo1OSRsMCRoMA.."
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Audi RS6 Avant</h5>
+              <p class="card-text">
+                The Audi RS6 Avant is a high-performance, luxury estate car that
+                combines everyday usability with sports car performance. Powered
+                by a powerful V8 engine, the RS6 can accelerate from 0-100km/h
+                in just over 3.5 seconds, making it one of the fastest wagons in
+                the world.
+              </p>
+              <a
+                href="Audi RS6 Avant.html"
+                class="btn btn-primary"
+                target="_blank"
+                >explore more</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="myfooter">
+      <nav class="nav">
+        <a class="nav-link active" aria-current="page" href="#">Active</a>
+        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+      </nav>
+    </footer>
+  </body>
+</html>
